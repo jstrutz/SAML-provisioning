@@ -1,11 +1,11 @@
 {
-  "title": "Auth0 Extension Boilerplate with API",
-  "name": "auth0-extension-boilerplate-with-api",
-  "version": "1.0.0",
+  "title": "SAML Connection Provisioning Helper",
+  "name": "saml-provisioning-helper",
+  "version": "0.0.0",
   "author": "auth0",
-  "description": "This is a Hello World extension",
+  "description": "Invite someone to configure a SAML connection on your account",
   "type": "application",
-  "repository": "https://github.com/auth0/auth0-extension-boilerplate-with-api",
+  "repository": "https://github.com/Cherna/SAML-Provisioning",
   "keywords": [
     "auth0",
     "extension"

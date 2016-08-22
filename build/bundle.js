@@ -47,26 +47,22 @@ module.exports =
 
 	'use strict';
 
-	var Webtask = __webpack_require__(1);
+	var App = __webpack_require__(1);
 
-	// This is the entry-point for the Webpack build. We need to convert our module
-	// (which is a simple Express server) into a Webtask-compatible function.
-	module.exports = Webtask.fromExpress(__webpack_require__(2));
+	var port = process.env.PORT || 3000;
+
+	App.listen(port, function () {
+	    console.log('Server started on port', port);
+	});
 
 /***/ },
 /* 1 */
-/***/ function(module, exports) {
-
-	module.exports = require("webtask-tools");
-
-/***/ },
-/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var express = __webpack_require__(3);
-	var Webtask = __webpack_require__(1);
+	var express = __webpack_require__(2);
+	var Webtask = __webpack_require__(3);
 	var app = express();
 	var api = express.Router();
 	var jwtExpress = __webpack_require__(4);
@@ -122,10 +118,16 @@ module.exports =
 	module.exports = app;
 
 /***/ },
-/* 3 */
+/* 2 */
 /***/ function(module, exports) {
 
 	module.exports = require("express");
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	module.exports = require("webtask-tools");
 
 /***/ },
 /* 4 */
@@ -163,7 +165,7 @@ module.exports =
 
 	'use strict';
 
-	var express = __webpack_require__(3);
+	var express = __webpack_require__(2);
 	var dev = express.Router();
 
 	if ((process.env.NODE_ENV || 'development') === 'development') {
